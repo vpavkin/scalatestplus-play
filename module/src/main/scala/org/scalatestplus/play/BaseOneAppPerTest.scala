@@ -1,6 +1,6 @@
 package org.scalatestplus.play
 
-import org.scalatest.{Suite, SuiteMixin, TestData}
+import org.scalatest.{Suite, SuiteMixin, TestData, TestSuite}
 import play.api.Application
 import play.api.test.Helpers
 
@@ -47,7 +47,7 @@ import play.api.test.Helpers
  * }
  * </pre>
  */
-trait BaseOneAppPerTest extends SuiteMixin with AppProvider { this: Suite with FakeApplicationFactory =>
+trait BaseOneAppPerTest extends TestSuite with SuiteMixin with AppProvider { this: Suite with FakeApplicationFactory =>
 
   /**
    * Creates new instance of `Application` with parameters set to their defaults. Override this method if you

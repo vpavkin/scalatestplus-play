@@ -29,12 +29,12 @@ class NestedExampleSpec extends Suites(
   new TwoSpec,
   new RedSpec,
   new BlueSpec
-) with GuiceOneServerPerSuite with OneBrowserPerSuite with FirefoxFactory {
+) with GuiceOneServerPerSuite with TestSuite with OneBrowserPerSuite with FirefoxFactory {
   // Override app if you need an Application with other than non-default parameters.
   override def fakeApplication(): Application =
     new GuiceApplicationBuilder().configure("foo" -> "bar", "ehcacheplugin" -> "disabled").router(Router.from(TestRoute)).build()
 }
- 
+
 // These are the nested suites
 @DoNotDiscover class OneSpec extends PlaySpec with ConfiguredServer with ConfiguredBrowser
 @DoNotDiscover class TwoSpec extends PlaySpec with ConfiguredServer with ConfiguredBrowser
